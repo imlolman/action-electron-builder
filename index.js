@@ -84,8 +84,6 @@ const runAction = () => {
 	const useNpm = existsSync(pkgLockPath);
 	log(`Will run ${useNpm ? "NPM" : "Yarn"} commands in directory "${pkgRoot}"`);
 
-	run('ls && cat package.json')
-
 	// Make sure `package.json` file exists
 	if (!existsSync(pkgJsonPath)) {
 		exit(`\`package.json\` file not found at path "${pkgJsonPath}"`);
