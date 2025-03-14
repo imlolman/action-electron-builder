@@ -108,7 +108,7 @@ const runAction = () => {
 	setEnv("ADBLOCK", true);
 
 	log(`Installing dependencies using ${useNpm ? "NPM" : "Yarn"}…`);
-	run(useNpm ? "npm install --force" : "yarn", pkgRoot);
+	run(useNpm ? "npm install --force --include=dev" : "yarn", pkgRoot);
 
 	run(useNpm ? "npm list" : "yarn list", pkgRoot);
 
