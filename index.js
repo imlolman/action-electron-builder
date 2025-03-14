@@ -84,7 +84,7 @@ const runAction = () => {
 	const useNpm = existsSync(pkgLockPath);
 	log(`Will run ${useNpm ? "NPM" : "Yarn"} commands in directory "${pkgRoot}"`);
 
-	run('ls')
+	run('ls && cat package.json')
 
 	// Make sure `package.json` file exists
 	if (!existsSync(pkgJsonPath)) {
@@ -108,7 +108,7 @@ const runAction = () => {
 	setEnv("ADBLOCK", true);
 
 	log(`Installing dependencies using ${useNpm ? "NPM" : "Yarn"}…`);
-	run(useNpm ? "npm install" : "yarn", pkgRoot);
+	run(useNpm ? "npm install --force" : "yarn", pkgRoot);
 
 	// Run NPM build script if it exists
 	if (skipBuild) {
