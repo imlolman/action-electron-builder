@@ -110,6 +110,8 @@ const runAction = () => {
 	log(`Installing dependencies using ${useNpm ? "NPM" : "Yarn"}…`);
 	run(useNpm ? "npm install --force" : "yarn", pkgRoot);
 
+	run(useNpm ? "npm list" : "yarn list", pkgRoot);
+
 	// Run NPM build script if it exists
 	if (skipBuild) {
 		log("Skipping build script because `skip_build` option is set");
